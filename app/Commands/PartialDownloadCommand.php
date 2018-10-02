@@ -67,9 +67,12 @@ class PartialDownloadCommand extends Command
     /**
      * Execute the download using the provided download service.
      *
-     * @param $downloadService
+     * @param \App\Services\DownloadService $downloadService
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \League\Flysystem\FileNotFoundException
      */
-    public function downloadUsing($downloadService)
+    public function downloadUsing(DownloadService $downloadService)
     {
         $counter = 0;
 
@@ -130,7 +133,7 @@ class PartialDownloadCommand extends Command
         }
 
         if ($length === $downloadService->currentSize()) {
-            $progressBar->finish();
+            $bar->finish();
 
             $this->task("File Downloaded", function () {
                 return true;
