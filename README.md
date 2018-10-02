@@ -1,10 +1,42 @@
 
 # Documentation
 
+## Componenets
+
+The application logic is divided between three classes:
+```php
+App\Commands\PartialDownloadCommand::class
+App\Providers\DownloadServiceProvider::class
+App\Services\DownloadService::class
+```
+### Partial Download Command Class
+A command class used by the application to contain the console 
+interface logic that allows a user to perform a partial download 
+of a file from a remote source using the command line.
+
+### Download Service Provider Class
+A service provider class used to create a singleton DownloadService class to use
+throughout the application.
+
+### Download Service Class
+A reusable service class utilized as a singleton in the console application.
+Its purpose is to contain any logic associated with downloading a file.
+Currently only supports downloading partial/whole files using a range request. 
+However, this class has been built to accommodate other methods related to the 
+downloading files at a later time. No implementation is done here. Any
+implementation is extracted to points of use classes.
+
+
 ## Assumptions
 ASSUMPTION: Assumes input for bytes are strings containing the integer value and units size. 
 
 ASSUMPTION: Assumes local scope is output file destination  (can be made dynamic however)
+
+ASSUMPTION: No file deletion logic is necessary.
+            If a file is completely downloaded then a user must manually delete that file.
+
+# Utilization
+<b>Note</b>: If you require greater flexibility of the file destination path use the <b>repository</b> build
 
 ## Using the standalone build.
 
