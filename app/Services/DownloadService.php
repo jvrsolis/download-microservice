@@ -12,7 +12,7 @@ use League\Flysystem\Adapter\Local as LocalStorage;
 /**
  * Class DownloadService
  *
- * A service class utilized as a
+ * A reusable service class utilized as a
  * singleton in the console application.
  * Its purpose is to contain any logic
  * associated with downloading a file.

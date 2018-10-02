@@ -5,6 +5,15 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Services\DownloadService;
 
+/**
+ * Class DownloadServiceProvider
+ *
+ * A service provider class used to create
+ * a singleton DownloadService class to use
+ * throughout the application.
+ *
+ * @package App\Providers
+ */
 class DownloadServiceProvider extends ServiceProvider
 {
     /**

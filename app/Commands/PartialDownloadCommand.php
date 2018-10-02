@@ -6,6 +6,16 @@ use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 use App\Services\DownloadService;
 
+/**
+ * Class PartialDownloadCommand
+ *
+ * A command class used by the application
+ * to contain the console interface logic
+ * that allows a user to perform a partial
+ * download of a file from a remote source.
+ *
+ * @package App\Commands
+ */
 class PartialDownloadCommand extends Command
 {
 
