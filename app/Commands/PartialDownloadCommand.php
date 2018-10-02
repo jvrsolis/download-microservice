@@ -22,7 +22,7 @@ class PartialDownloadCommand extends Command
      * @var string
      */
     protected $signature = 'download:partial 
-                            {--s|sourceUrl=http://785e6149.bwtest-aws.pravala.com/384MB.jar : The source url.}
+                            {--s|sourceUrl=http://a10b57dd.bwtest-aws.pravala.com/384MB.jar : The source url.}
                             {--d|downloadSize=4mb : The amount of the file to retrieve.}
                             {--c|chunkSize=1mb : The size of the each request.}
                             {--p|destinationPath= : The output fullname of the downloaded file.}';
