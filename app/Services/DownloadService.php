@@ -99,7 +99,7 @@ class DownloadService
     /**
      * Return the download size instance.
      *
-     * @return ByteUnit
+     * @return \ByteUnits\System
      */
     public function downloadSize()
     {
@@ -109,7 +109,7 @@ class DownloadService
     /**
      * Return the chunk size instance.
      *
-     * @return ByteUnit
+     * @return \ByteUnits\System
      */
     public function chunkSize()
     {
@@ -384,7 +384,7 @@ class DownloadService
      * Return the header value of a response.
      *
      * @param string $header
-     * @param string $response
+     * @param array $response
      *
      * @return string
      */
@@ -396,6 +396,8 @@ class DownloadService
                 return trim($headervalue);
             }
         }
+
+        return null;
     }
 
     /**

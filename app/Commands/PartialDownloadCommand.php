@@ -37,7 +37,9 @@ class PartialDownloadCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \League\Flysystem\FileNotFoundException
      */
     public function handle()
     {
@@ -68,6 +70,8 @@ class PartialDownloadCommand extends Command
      * Execute the download using the provided download service.
      *
      * @param \App\Services\DownloadService $downloadService
+     *
+     * @return void
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \League\Flysystem\FileNotFoundException
@@ -152,7 +156,7 @@ class PartialDownloadCommand extends Command
             $downloadService->contentLength() ?? 'Unknown Source Size.'
         ]]);
 
-        $this->notify("Download Command", "Download process complete.", storage_path() . "/JvrSolisLogo.png");
+        $this->notify("Download Command", "Download process complete.");
     }
 
     /**
