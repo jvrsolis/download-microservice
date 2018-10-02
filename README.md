@@ -1,6 +1,8 @@
 # Introduction
 This repository is for a console application whose purpose is to act as a utility microservice to download large files from the web. The service can resume at any point in time and has a hard php limit of 1G usage of memory. Using this service can be done through the build file found in the build folder or using the repository and hosting it on a virutal/hardware machine. The repository uses Laravel Zero, a fork of Laravel geared toward building console application.
 
+![alt text](https://raw.githubusercontent.com/jvrsolis/multi-get/blob/master/Screen%20Shot%202018-10-02%20at%2011.34.26%20AM.png)
+
 # Documentation
 
 ## Componenets
