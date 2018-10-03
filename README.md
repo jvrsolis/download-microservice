@@ -78,7 +78,7 @@ Using the provided Test URL:
 
 ```bash
 
-php main download:partial -s 'http://a10b57dd.bwtest-aws.pravala.com/384MB.jar' -d 4mb -c 1mb
+php main download:partial -s 'http://a10b57dd.bwtest-aws.pravala.com/384MB.jar' -d 4mb -c 1mb -p ./storage/dummy.pdf
 
 ```
 
