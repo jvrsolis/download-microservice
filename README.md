@@ -50,6 +50,7 @@ all dependancies in mind. Some caveats for using the standalone build include:
 - Specifying all parameters
 - Destination path must be relative. 
 - ext-fileinfo extension must be installed and included in php.ini
+- ext-posix extension must be install and included in php.ini
 
 Additionally when specifying the download size and the chunk size please provide the units
 
@@ -98,6 +99,8 @@ The repository contains assumptions that the users machine has the following dep
 
 - Git
 - Composer
+- ext-fileinfo extension must be installed and included in php.ini
+- ext-posix extension must be install and included in php.ini
 
 Additionally when specifying the download size and the chunk size please provide the units
 
