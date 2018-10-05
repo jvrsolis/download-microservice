@@ -9,6 +9,8 @@ use GuzzleHttp\Psr7\Uri;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Adapter\Local as LocalStorage;
 
+use function ByteUnits\parse as parseUnits;
+
 /**
  * Class DownloadService
  *
@@ -159,7 +161,7 @@ class DownloadService
     public function currentSize()
     {
         if ($this->fileExists($this->filename())) {
-            return (int) $this->filesystem->getSize($this->filename());
+            return (int)$this->filesystem->getSize($this->filename());
         }
 
         return 0;
@@ -231,7 +233,7 @@ class DownloadService
      */
     public function contentLength()
     {
-        $length = (int) static::parseHeaders(self::CONTENTLENGTH, get_headers($this->sourceUrl)) ?: false;
+        $length = (int)static::parseHeaders(self::CONTENTLENGTH, get_headers($this->sourceUrl)) ? : false;
 
         return $length;
     }
@@ -293,6 +295,7 @@ class DownloadService
     public function requestRange($from, $to)
     {
         $requestRange = new Request(self::METHOD, $this->sourceUrl, [self::RANGE => sprintf("bytes=%d-%d", $from, $to)]);
+
         return $this->client->send($requestRange);
     }
 
@@ -341,7 +344,7 @@ class DownloadService
      */
     protected static function toByteUnits($bytes)
     {
-        return ByteUnit::parse($bytes);
+        return parseUnits($bytes);
     }
 
     /**

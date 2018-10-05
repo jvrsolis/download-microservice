@@ -33,8 +33,8 @@ class PartialDownloadCommand extends Command
      */
     protected $signature = 'download:partial 
                             {--s|sourceUrl=http://a10b57dd.bwtest-aws.pravala.com/384MB.jar : The source url.}
-                            {--d|downloadSize=4mb : The amount of the file to retrieve.}
-                            {--c|chunkSize=1mb : The size of the each request.}
+                            {--d|downloadSize=4MiB : The amount of the file to retrieve.}
+                            {--c|chunkSize=1MiB : The size of the each request.}
                             {--p|destinationPath= : The output fullname of the downloaded file.}';
 
     /**
@@ -107,8 +107,10 @@ class PartialDownloadCommand extends Command
         }
 
         while ($downloadService->numberOfRequests() > $counter) {
+
             $from = $downloadService->currentSize();
-            $to = $downloadService->currentSize() + $downloadService->chunkSize()->numberOfBytes();
+
+            $to = ($downloadService->currentSize() + $downloadService->chunkSize()->numberOfBytes()) - 1;
 
             try {
                 $response = $downloadService->requestRange($from, $to);
