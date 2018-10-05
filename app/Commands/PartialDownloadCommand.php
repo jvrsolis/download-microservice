@@ -57,13 +57,13 @@ class PartialDownloadCommand extends Command
 
         ini_set("memory_limit", self::MAXSIZE);
 
-        $sourceUrl = $this->option('sourceUrl');
+        $sourceUrl = $this->stripQuotes($this->option('sourceUrl'));
 
         $downloadSize = $this->option('downloadSize');
 
         $chunkSize = $this->option('chunkSize');
 
-        $destinationPath = $this->option('destinationPath');
+        $destinationPath = $this->stripQuotes($this->option('destinationPath'));
 
         $downloadService = app(DownloadService::class);
 
@@ -167,6 +167,19 @@ class PartialDownloadCommand extends Command
         ]]);
 
         $this->notify("Download Command", "Download process complete.");
+    }
+
+    /**
+     * Strip any unecessary quotes if the user
+     * accidently added them.
+     * 
+     * @param string $string
+     */
+    public function stripQuotes($string)
+    {
+        $string = str_replace('"', "", $string);
+        $string = str_replace("'", "", $string);
+        return $string;
     }
 
     /**
