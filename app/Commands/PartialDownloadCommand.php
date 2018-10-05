@@ -59,9 +59,9 @@ class PartialDownloadCommand extends Command
 
         $sourceUrl = $this->stripQuotes($this->option('sourceUrl'));
 
-        $downloadSize = $this->option('downloadSize');
+        $downloadSize = $this->stripQuotes($this->option('downloadSize'));
 
-        $chunkSize = $this->option('chunkSize');
+        $chunkSize = $this->stripQuotes($this->option('chunkSize'));
 
         $destinationPath = $this->stripQuotes($this->option('destinationPath'));
 
