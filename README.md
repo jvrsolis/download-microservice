@@ -126,8 +126,8 @@ download:partial
 
 ```bash
 
-git clone https://github.com/jvrsolis/multi-get.git multi-get
-cd multi-get
+git clone https://github.com/jvrsolis/download-microservice.git download-microservice
+cd download-microservice
 composer install
 
 ```
